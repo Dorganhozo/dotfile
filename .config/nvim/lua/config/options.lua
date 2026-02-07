@@ -2,8 +2,8 @@ local opt = vim.opt
 --opt.path:append'**'
 opt.cursorcolumn=false
 opt.cursorline=true
-opt.relativenumber=true
-opt.number=true
+opt.relativenumber=false
+opt.number=false
 opt.mouse='niv'
 opt.eventignore:append'MenuPopup'
 
@@ -30,11 +30,18 @@ g.netrw_liststyle = 3
 g.netrw_winsize = 20
 g.netrw_browse_split = 0
 
-local gitignore = vim.fn['netrw_gitignore#Hide']()
+-- local gitignore = vim.fn['netrw_gitignore#Hide']()
 
 --g.netrw_list_hide = '^\\..*'
 
-if not string.match(gitignore, '^fatal:')  then
-	g.netrw_list_hide = gitignore
-end
-vim.cmd.colorscheme'gruvbox'
+-- if not string.match(gitignore, '^fatal:')  then
+-- 	g.netrw_list_hide = gitignore
+-- end
+vim.cmd.colorscheme'shine'
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	callback = function()
+		vim.cmd("syntax clear")
+	end,
+})

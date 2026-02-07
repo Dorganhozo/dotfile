@@ -1,24 +1,24 @@
 local wk = require'which-key'
 --local dap = require'dap'
 
+local oil = require'oil'
 
 local mapping = {
-	{'<leader>f' ,		':find **/', 		 	   desc='Find a file in relative path'		},
+	{'<leader>f' ,		'<cmd>FZF<CR>', 		 	   desc='Find a file in relative path'		},
 	{'<leader>tf',		':tabf **/', 		  	   desc='Open a new tab with the found file'	},
 	{'<leader>d' ,		vim.diagnostic.setloclist, 	   desc='Show local diagnostics'		},
 	{'<leader>gd',	        vim.diagnostic.setqflist, 	   desc='Show all diagnostics'			},
 	--{'<leader><ENTER>',     ':vsplit|wincmd L|term<CR>|i',	   desc='Open a terminal'			},
 	{
-		'<leader>e',
-		function ()
-			local is_netrw = vim.bo[0].filetype == 'netrw'
+		'<leader>e', function ()
+			local is_oil = vim.bo.filetype == 'oil'
 
-			if is_netrw then
-				vim.cmd'Rexplore'
+			if is_oil then
+				oil.close()
 				return
 			end
-			vim.cmd 'Explore'
 
+			oil.open()
 		end, desc="Explore files"
 	},
 
@@ -30,8 +30,8 @@ local mapping = {
 	--{'<Leader>de', dap.continue,		desc="New/Continue Dap" 	},
 }
 
-for _, value in ipairs{'<Left>', '<Right>', '<Up>', '<Down>'} do
-	vim.keymap.set({'n', 'v', 'i'}, value, '<Nop>')
-end
+-- for _, value in ipairs{'<Left>', '<Right>', '<Up>', '<Down>'} do
+-- 	vim.keymap.set({'n', 'v', 'i'}, value, '<Nop>')
+-- end
 
 wk.add(mapping, {})

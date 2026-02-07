@@ -42,4 +42,3 @@ function _G.lsp_status_text()
 
 	return string.format("%s%% - %.20s %.8s", progress.percentage, progress.title, progress.message)
 end
-

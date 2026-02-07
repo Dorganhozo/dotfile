@@ -14,8 +14,8 @@ return {
 			configuration = {
 				runtimes = {
 					{
-						name = "JavaSE-17",
-						path = "/usr/lib/jvm/java-17-openjdk-i386"
+						name = "JavaSE-21",
+						path = "/data/data/com.termux/files/usr/lib/jvm/java-21-openjdk/"
 					}
 				}
 			},

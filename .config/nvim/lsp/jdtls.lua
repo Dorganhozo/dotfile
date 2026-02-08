@@ -38,7 +38,8 @@ return {
 		'--add-modules=ALL-SYSTEM',
 		'--add-opens', 'java.base/java.util=ALL-UNNAMED',
 		'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-		'-jar', vim.fn.expand(jdtls_path .. 'plugins/org.eclipse.equinox.launcher_*.jar'), '-configuration', vim.fn.expand(jdtls_path .. 'config_linux'),
+		'-jar', vim.fn.expand(jdtls_path .. 'plugins/org.eclipse.equinox.launcher_*.jar'),
+		'-configuration', vim.fn.expand(jdtls_path .. 'config_linux'),
 		'-data', workspace_dir,
 		'-Xms800m',
 		'-Xmx1g'

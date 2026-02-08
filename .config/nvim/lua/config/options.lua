@@ -1,5 +1,5 @@
 local opt = vim.opt
---opt.path:append'**'
+opt.path:append'**'
 opt.cursorcolumn=false
 opt.cursorline=true
 opt.relativenumber=true

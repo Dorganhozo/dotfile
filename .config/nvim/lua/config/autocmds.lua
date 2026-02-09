@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 		progress.percentage = value.percentage or "100"
 		progress.title = value.title or "Done"
-		progress.message = value.message or ""
+		-- progress.message = value.message or ""
 		progress.client_id = event.data.client_id
 
 		vim.api.nvim__redraw {valid=false}
@@ -40,6 +40,6 @@ function _G.lsp_status_text()
 		return vim.lsp.get_client_by_id(progress.client_id).name
 	end
 
-	return string.format("%s%% - %.20s %.8s", progress.percentage, progress.title, progress.message)
+	return string.format("%s%% - %.25s", progress.percentage, progress.title)
 end
 

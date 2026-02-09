@@ -7,6 +7,9 @@ stow
 Use esses comandos:
 > [!WARNING]
 > Isso pode substituir seus arquivos locais!
-`git clone https://github.com/Dorganhozo/dotfile ~/.dotfile`
-`cd ~/.dotfile`
-`stow .`
+
+```
+git clone https://github.com/Dorganhozo/dotfile ~/.dotfile
+cd ~/.dotfile
+stow .
+```

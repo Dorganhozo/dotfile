@@ -3,15 +3,17 @@ local wk = require'which-key'
 
 
 local mapping = {
-	{'<leader>f' ,		':find **/', 		 	   desc='Find a file in relative path'		},
-	{'<leader>tf',		':tabf **/', 		  	   desc='Open a new tab with the found file'	},
+	{'<leader>f' ,		':find ', 		 	   desc='Find a file in relative path'		},
+	{'<leader>tf',		':tabf ', 		  	   desc='Open a new tab with the found file'	},
+	{'<leader>gg',		':grep ', 		  	   desc='Search for a file by its content'	},
+	{'<leader>gm',		':copen<CR>', 		  	   desc='List of found files' 			},
 	{'<leader>d' ,		vim.diagnostic.setloclist, 	   desc='Show local diagnostics'		},
 	{'<leader>gd',	        vim.diagnostic.setqflist, 	   desc='Show all diagnostics'			},
 	--{'<leader><ENTER>',     ':vsplit|wincmd L|term<CR>|i',	   desc='Open a terminal'			},
 	{
 		'<leader>e',
 		function ()
-			local is_netrw = vim.bo[0].filetype == 'netrw'
+			local is_netrw = vim.bo.filetype == 'netrw'
 
 			if is_netrw then
 				vim.cmd'Rexplore'

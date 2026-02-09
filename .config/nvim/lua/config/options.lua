@@ -1,5 +1,5 @@
 local opt = vim.opt
---opt.path:append'**'
+opt.path:append'**'
 opt.cursorcolumn=false
 opt.cursorline=true
 opt.relativenumber=true
@@ -21,6 +21,8 @@ local statusline = {
 	"14.(%l,%c%V%) ",
 	"%P"
 }
+
+vim.cmd'syntax off'
 
 vim.o.statusline = table.concat(statusline, "")
 

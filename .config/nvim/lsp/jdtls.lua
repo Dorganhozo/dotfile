@@ -5,6 +5,7 @@ local workspace_dir = vim.fn.expand(workspace_path) .. project_name
 
 local root_markers = {'gradlew', '.git', 'mvnw', 'Makefile'}
 
+
 vim.api.nvim_create_user_command("WipeCacheAndRestart", function ()
 	if vim.fn.isdirectory(workspace_dir) == 0 then
 		vim.notify("Project workspace isn't exists", vim.log.levels.INFO, {})
@@ -14,19 +15,23 @@ vim.api.nvim_create_user_command("WipeCacheAndRestart", function ()
 	local function delete_and_restart()
 		local client = {}
 
-		for _, value in ipairs(vim.lsp.get_clients{name = "jdtls", bufnr=vim.api.nvim_get_current_buf()}) do
+		for _, value in ipairs(vim.lsp.get_clients{name = "jdtls", bufnr = vim.api.nvim_get_current_buf()}) do
 			if value then
 				client = value
 				break
 			end
 		end
 
-		if client == {} then
-			vim.notify("Jdtls not initialze", vim.log.levels.INFO, {})
+		if not client.stop then
+			if not vim.bo.filetype == "java" or not vim.bo.modifiable then
+				return
+			end
+
+			vim.notify("Jdtls did not initialze in this Workspace", vim.log.levels.INFO, {})
 			return
 		end
 
-		local bufs = vim.tbl_keys(client.attached_buffers)
+		local bufs = vim.tbl_keys(client.attached_buffers or {})
 		client:stop()
 
 		 local miliseconds = 30 * 1000

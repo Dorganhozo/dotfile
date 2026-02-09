@@ -22,8 +22,6 @@ local statusline = {
 	"%P"
 }
 
-vim.cmd'syntax off'
-
 vim.o.statusline = table.concat(statusline, "")
 
 local g = vim.g

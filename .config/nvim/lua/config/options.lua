@@ -37,7 +37,9 @@ g.netrw_browse_split = 0
 -- if not string.match(gitignore, '^fatal:')  then
 -- 	g.netrw_list_hide = gitignore
 -- end
+
 vim.cmd.colorscheme'shine'
+vim.cmd.colorscheme'gruvbox'
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "java",

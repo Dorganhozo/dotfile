@@ -1,6 +1,6 @@
 local wk = require'which-key'
 --local dap = require'dap'
-
+local oil = require'oil'
 
 local mapping = {
 	{'<leader>f' ,		':find ', 		 	   desc='Find a file in relative path'		},
@@ -13,13 +13,14 @@ local mapping = {
 	{
 		'<leader>e',
 		function ()
-			local is_netrw = vim.bo.filetype == 'netrw'
+			local is_oil = vim.bo.filetype == 'oil'
 
-			if is_netrw then
-				vim.cmd'Rexplore'
+			if is_oil then
+				oil.close()
 				return
 			end
-			vim.cmd 'Explore'
+
+			oil.open()
 
 		end, desc="Explore files"
 	},

@@ -24,17 +24,17 @@ local statusline = {
 
 vim.o.statusline = table.concat(statusline, "")
 
-local g = vim.g
-g.netrw_banner = 0
-g.netrw_liststyle = 3
-g.netrw_winsize = 20
-g.netrw_browse_split = 0
-
-local gitignore = vim.fn['netrw_gitignore#Hide']()
+-- local g = vim.g
+-- g.netrw_banner = 0
+-- g.netrw_liststyle = 3
+-- g.netrw_winsize = 20
+-- g.netrw_browse_split = 0
+--
+-- local gitignore = vim.fn['netrw_gitignore#Hide']()
 
 --g.netrw_list_hide = '^\\..*'
 
-if not string.match(gitignore, '^fatal:')  then
-	g.netrw_list_hide = gitignore
-end
+-- if not string.match(gitignore, '^fatal:')  then
+-- 	g.netrw_list_hide = gitignore
+-- end
 vim.cmd.colorscheme'gruvbox'

@@ -1,11 +1,11 @@
 local wk = require'which-key'
 --local dap = require'dap'
 local oil = require'oil'
+local builtin = require('telescope.builtin')
 
 local mapping = {
-	{'<leader>f' ,		':find ', 		 	   desc='Find a file in relative path'		},
-	{'<leader>tf',		':tabf ', 		  	   desc='Open a new tab with the found file'	},
-	{'<leader>gg',		':grep ', 		  	   desc='Search for a file by its content'	},
+	{'<leader>f' ,		builtin.find_files, 		 	   desc='Find a file in relative path'		},
+	{'<leader>gg',		builtin.live_grep, 		  	   desc='Search for a file by its content'	},
 	{'<leader>gm',		':copen<CR>', 		  	   desc='List of found files' 			},
 	{'<leader>d' ,		vim.diagnostic.setloclist, 	   desc='Show local diagnostics'		},
 	{'<leader>gd',	        vim.diagnostic.setqflist, 	   desc='Show all diagnostics'			},

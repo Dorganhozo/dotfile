@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd("WinLeave", {
 
 local progress = nil
 
-
 vim.api.nvim_create_autocmd("LspProgress", {
 	callback = function (event)
 		local value = event.data.params.value

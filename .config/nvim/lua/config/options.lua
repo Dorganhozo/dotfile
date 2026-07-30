@@ -5,7 +5,7 @@ opt.cursorline=true
 opt.relativenumber=true
 opt.number=true
 opt.mouse='niv'
-opt.eventignore:append'MenuPopup'
+-- opt.eventignore:append'MenuPopup'
 
 local statusline = {
 	"%<",

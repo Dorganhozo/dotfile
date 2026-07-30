@@ -1,30 +1,17 @@
 local wk = require'which-key'
 --local dap = require'dap'
 local oil = require'oil'
-local builtin = require('telescope.builtin')
 
 local mapping = {
-	{'<leader>f' ,		builtin.find_files, 		 	   desc='Find a file in relative path'		},
-	{'<leader>gg',		builtin.live_grep, 		  	   desc='Search for a file by its content'	},
-	{'<leader>gm',		':copen<CR>', 		  	   desc='List of found files' 			},
-	{'<leader>d' ,		vim.diagnostic.setloclist, 	   desc='Show local diagnostics'		},
-	{'<leader>gd',	        vim.diagnostic.setqflist, 	   desc='Show all diagnostics'			},
-	--{'<leader><ENTER>',     ':vsplit|wincmd L|term<CR>|i',	   desc='Open a terminal'			},
-	{
-		'<leader>e',
-		function ()
-			local is_oil = vim.bo.filetype == 'oil'
-
-			if is_oil then
-				oil.close()
-				return
-			end
-
-			oil.open()
-
-		end, desc="Explore files"
-	},
-
+	{'<leader>e',		oil.toggle_float,		   desc="Explore files" 			},
+	{'<leader>f' ,		FzfLua.files, 		 	   desc='Find a file in relative path'		},
+	{'<leader>gg',		FzfLua.live_grep,	  	   desc='Search for a file by its content'	},
+	{'<leader>b',  		FzfLua.buffers,			   desc='List all buffers'		  	},
+	{'<leader>d' ,		FzfLua.lsp_document_diagnostics,   desc='Show local diagnostics'		},
+	{'<leader>gd',	        FzfLua.lsp_workspace_diagnostics,  desc='Show all diagnostics'			},
+	{'<leader><leader>',    FzfLua.builtin, 		   desc='Fzf-lua builtin commands'		},
+	--{'<leader><ENTER>',     ':vsplit|wincmd L|term<CR>|i',   desc='Open a terminal'			},
+	-- {'<leader>gm',		':copen<CR>', 		  	   desc='List of found files' 			},
 	--{'<F5>',       dap.continue,		desc="Debug continue"		},
 	--{'<F10>',      dap.step_over,		desc="Debug over(step over)"	},
 	--{'<F11>',      dap.step_into,		desc="Debug into(step into)"	},

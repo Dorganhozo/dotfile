@@ -7,6 +7,10 @@ return {
 		  -- border=''
 		padding = 2,
 		border='single'
+	  },
+	  keymaps = {
+		["<ESC>"] = {"actions.close", opts={exit_if_last_buf = true}},
+		["q"] = {"actions.close", opts={exit_if_last_buf=true}}
 	  }
   },
   -- Optional dependencies
